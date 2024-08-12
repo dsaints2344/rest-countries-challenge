@@ -8,6 +8,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { CountriesComponent } from './components/countries/countries.component';
 import { ButtonModule } from 'primeng/button'
 import { HttpClientModule } from '@angular/common/http';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     ButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+img.flag {
+    width: 100%;
+    /* This makes the image take up the full width of its container */
+    height: auto;
+    /* Maintain aspect ratio */
+    max-height: 150px;
+    /* Optional: Set a max height if needed */
+    object-fit: contain;
+    /* Ensures the entire SVG is visible, preserving aspect ratio */
+    object-position: center;
+    /* Center the flag within the container */
+    border-radius: 0.5rem;
+    /* Optional: Add rounded corners */
+}
