@@ -1,0 +1,19 @@
+<div class="row">
+    <div *ngFor="let country of countries" class="col-lg-4 cold-md-6 col-sm-12 mb-4">
+        <p-card header="{{country.name.common}}" [style]="{width: '65%'}">
+            <ng-template pTemplate="header">
+                <img alt="countryFlag" [src]="country.flags.svg" alt="{{ country.name.common }} flag"
+                    class="flag" />
+            </ng-template>
+            <p>
+                <strong> Population: </strong> {{country.population | number}}
+            </p>
+            <p>
+                <strong>Region: </strong> {{country.region}}
+            </p>
+            <p>
+                <strong>Capital: </strong> {{country.capital}}
+            </p>
+        </p-card>
+    </div>
+</div>
