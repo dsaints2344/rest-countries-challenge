@@ -25,4 +25,10 @@ export class CountriesComponent implements OnInit {
     })
   }
 
+  handleSearch(event: string){
+    this.countiesService.getCountriesByName(event.toLowerCase()).subscribe((countries) => {
+      this.countries = countries;
+    })
+  }
+
 }

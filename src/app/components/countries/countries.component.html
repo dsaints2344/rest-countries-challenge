@@ -3,7 +3,8 @@
         <div class="d-flex justify-content-between">
             <p-iconField>
                 <p-inputIcon styleClass="fa-solid fa-magnifying-glass" />
-                <input type="text" pInputText placeholder="Search for a country..." />
+                <input type="text" pInputText placeholder="Search for a country..." [(ngModel)]="countrySearchInput"
+                    (ngModelChange)="handleSearch($event)" />
             </p-iconField>
             <p-dropdown [options]="regions" [(ngModel)]="selectedRegion" placeholder="Filter by region"
                 showClear="true" />
