@@ -4,12 +4,12 @@
             <p-iconField>
                 <p-inputIcon styleClass="fa-solid fa-magnifying-glass" />
                 <input type="text" pInputText placeholder="Search for a country..." [(ngModel)]="countrySearchInput"
-                    (ngModelChange)="handleSearch($event)" />
+                    (ngModelChange)="handleSearch()" />
             </p-iconField>
-            <p-dropdown [options]="regions" [(ngModel)]="selectedRegion" placeholder="Filter by region"
-                showClear="true" />
+            <p-dropdown [options]="regions" [(ngModel)]="selectedRegion" placeholder="Filter by region" showClear="true"
+                (ngModelChange)="handleRegionChange()" />
         </div>
     </div>
 
-    <app-countries-list [countries]="countries" />
+    <app-countries-list [countries]="filteredCountries" />
 </div>
