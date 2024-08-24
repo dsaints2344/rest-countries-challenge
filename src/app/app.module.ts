@@ -15,6 +15,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { DropdownModule } from 'primeng/dropdown';
 import { CountriesListComponent } from './components/countries/countries-list/countries-list.component';
 import { FormsModule } from '@angular/forms';
+import { CountryDetailsComponent } from './components/countries/country-details/country-details.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     CountriesComponent,
     LayoutComponent,
     CountriesListComponent,
+    CountryDetailsComponent,
   ],
   imports: [
     BrowserModule,
