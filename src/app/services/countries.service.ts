@@ -24,4 +24,8 @@ export class CountriesService {
   getCountriesByRegion(region: string): Observable<Country[]> {
     return this.http.get<Country[]>(`${this.apiURL}/region/${region}`);
   }
+
+  getCountryByCC2Code(code: string): Observable<Country[]> {
+    return this.http.get<Country[]>(`${this.apiURL}/alpha/${code}`);
+  }
 }

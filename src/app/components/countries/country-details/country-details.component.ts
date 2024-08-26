@@ -17,8 +17,12 @@ export class CountryDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.countrycc2Code = params.get('countryCode')!;
-      console.log(this.countrycc2Code);
-    })
+    });
+
+    this.countriesService.getCountryByCC2Code(this.countrycc2Code!)
+      .subscribe((c) => {
+        console.log(c);
+      })
   }
 
 }
