@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
 import { CountriesComponent } from './components/countries/countries.component';
+import { CountryDetailsComponent } from './components/countries/country-details/country-details.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
       {
         path: '',
         component: CountriesComponent
+      },
+      {
+        path: 'details/:countryCode',
+        component: CountryDetailsComponent
       }
     ]
   }

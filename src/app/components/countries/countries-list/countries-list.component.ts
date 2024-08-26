@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Country } from '../../../models/countries.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-countries-list',
@@ -8,4 +9,12 @@ import { Country } from '../../../models/countries.model';
 })
 export class CountriesListComponent {
   @Input()   public countries: Country[] = [];
+
+  constructor(private router: Router, private route: ActivatedRoute){}
+
+  navigateToDetails(index: number){
+    const countryCC2 = this.countries[0].cca2;
+    this.router.navigate(['details', countryCC2], { relativeTo: this.route });
+  }
+
 }

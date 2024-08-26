@@ -1,6 +1,6 @@
 <div class="row" *ngIf="countries.length > 0; else noCountriesFound">
-    <div *ngFor="let country of countries" class="col-lg-4 cold-md-6 col-sm-12 mb-4">
-        <p-card header="{{country.name.common}}" [style]="{width: '65%'}">
+    <div *ngFor="let country of countries; let index = index" class="col-lg-4 cold-md-6 col-sm-12 mb-4">
+        <p-card header="{{country.name.common}}" [style]="{width: '65%'}" (click)="navigateToDetails(index)">
             <ng-template pTemplate="header">
                 <img alt="countryFlag" [src]="country.flags.svg" alt="{{ country.name.common }} flag" class="flag" />
             </ng-template>
