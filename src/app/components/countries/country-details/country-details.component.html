@@ -1,12 +1,47 @@
 <div class="container">
-    <div #backButton>
+    <div #backButton class="pb-5">
         <p-button label="Back" icon="fa-solid fa-arrow-left" iconPos="left" severity="secondary" [text]="true"
             [raised]="true" [style]="{'width':  '150px'}" [routerLink]="['../../']" />
     </div>
     <div class="row">
-        <div class="col-lg-5">
-
+        <div class="col-7">
+            <p-image src="{{country?.flags?.svg}}" alt="country flag" width="500" />
         </div>
-        <div class="col-lg-7"></div>
+        <div class="col-5">
+            <h4 class="fw-bold">{{country?.name?.common}}</h4>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <p>
+                        <strong>Native Name:</strong> {{country?.name?.nativeName?.[countryNativeNameKey]?.common}}
+                    </p>
+                    <p>
+                        <strong>Population:</strong> {{country?.population?.toString()}}
+                    </p>
+                    <p>
+                        <strong>Region:</strong> {{country?.region}}
+                    </p>
+                    <p>
+                        <strong>Sub Region:</strong> {{country?.subregion}}
+                    </p>
+                    <p>
+                        <strong>Capital:</strong> {{country?.capital}}
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p>
+                        <strong>Top Domain:</strong> {{country?.tld?.[0]}}
+                    </p>
+                    <p>
+                        <strong>Currencies:</strong> {{country?.currencies?.[countryCurrencyKey]?.name}}
+                    </p>
+                    <p *ngIf="country?.languages">
+                        <strong>Languages:</strong>
+                        <ng-container *ngFor="let key of languageKeys; let isLast = last">
+                            {{country?.languages?.[key]}}{{!isLast ? ',' : ''}}
+                        </ng-container>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

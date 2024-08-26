@@ -13,6 +13,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputIconModule } from 'primeng/inputicon';
 import { DropdownModule } from 'primeng/dropdown';
+import { ImageModule } from 'primeng/image';
 import { CountriesListComponent } from './components/countries/countries-list/countries-list.component';
 import { FormsModule } from '@angular/forms';
 import { CountryDetailsComponent } from './components/countries/country-details/country-details.component';
@@ -37,7 +38,8 @@ import { CountryDetailsComponent } from './components/countries/country-details/
     InputIconModule,
     InputTextModule ,
     DropdownModule,
-    FormsModule
+    FormsModule,
+    ImageModule
   ],
   providers: [
   ],
