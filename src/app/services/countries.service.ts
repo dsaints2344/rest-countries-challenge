@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Country } from '../models/countries.model';
-import { Observable } from 'rxjs';
+import { forkJoin, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class CountriesService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCountries() : Observable<Country[]> {
+  getAllCountries(): Observable<Country[]> {
     return this.http.get<Country[]>(`${this.apiURL}/all`);
   }
 
@@ -27,5 +27,13 @@ export class CountriesService {
 
   getCountryByCC2Code(code: string): Observable<Country[]> {
     return this.http.get<Country[]>(`${this.apiURL}/alpha/${code}`);
+  }
+
+  getCountryNamesByCC2Codes(codes: string[]): Observable<string[]> {
+    const countryRequests = codes.map(c => this.getCountryByCC2Code(c));
+
+    return forkJoin(countryRequests).pipe(
+      map((responses: Country[][]) => responses.map(res => res[0]?.name?.common) || 'Unknown country')
+    );
   }
 }

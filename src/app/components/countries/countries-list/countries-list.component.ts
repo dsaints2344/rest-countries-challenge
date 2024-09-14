@@ -13,7 +13,7 @@ export class CountriesListComponent {
   constructor(private router: Router, private route: ActivatedRoute){}
 
   navigateToDetails(index: number){
-    const countryCC2 = this.countries[0].cca2;
+    const countryCC2 = this.countries[index].cca2;
     this.router.navigate(['details', countryCC2], { relativeTo: this.route });
   }
 

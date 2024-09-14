@@ -42,6 +42,19 @@
                     </p>
                 </div>
             </div>
+            <div class="row pt-5">
+                <div class="d-flex align-items-center">
+                    <span class="fw-bold me-2">Border Countries:</span>
+                    <div class="d-flex flex-wrap gap-1" *ngIf="countryBordersNames.length > 0; else notFoundCountries">
+                      <span class="border px-3 py-2 rounded" *ngFor="let country of countryBordersNames">
+                        {{ country }}
+                      </span>
+                    </div>
+                    <ng-template #notFoundCountries>
+                        N/A
+                    </ng-template>
+                  </div>
+            </div>
         </div>
     </div>
 </div>

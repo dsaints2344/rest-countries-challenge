@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CountryDetailsComponent implements OnInit {
   countrycc2Code: string | null = null;
   country: Country | null = null;
+  countryBordersNames: string[] = [];
   countryNativeNameKey: string = '';
   countryCurrencyKey: string = '';
 
@@ -23,11 +24,12 @@ export class CountryDetailsComponent implements OnInit {
 
     this.countriesService.getCountryByCC2Code(this.countrycc2Code!)
       .subscribe((c) => {
-        console.log(c[0])
         this.country = c[0];
         this.countryNativeNameKey = Object.keys(this.country?.name.nativeName)[0];
         this.countryCurrencyKey = Object.keys(this.country?.currencies)[0];
-      })
+        this.countriesService.getCountryNamesByCC2Codes(this.country?.borders!).subscribe((c) => this.countryBordersNames = c);
+      });
+  
   }
 
   get languageKeys(): string[] {
