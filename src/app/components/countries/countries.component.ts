@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Country } from '../../models/countries.model';
 import { CountriesService } from '../../services/countries.service';
+import { DarkModeService } from '../../services/dark-mode.service';
 
 @Component({
   selector: 'app-countries',
@@ -8,17 +9,21 @@ import { CountriesService } from '../../services/countries.service';
   styleUrl: './countries.component.scss'
 })
 export class CountriesComponent implements OnInit {
-
   public regions: string[] =  ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
   public selectedRegion: string | undefined;
   public countrySearchInput: string = '';
   public countries: Country[] = [];
   public filteredCountries: Country[] = [];
+  public isDarkMode: boolean = false;
 
-  constructor(private countriesService: CountriesService) {}
+  constructor(private countriesService: CountriesService,
+              private darkModeService: DarkModeService) {}
 
   ngOnInit(): void {
     this.loadAllCountries();
+    this.darkModeService.darkMode$.subscribe((isDarkMode) => {
+      this.isDarkMode = isDarkMode;
+    });
   }
 
   loadAllCountries() {

@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CountriesListComponent {
   @Input()   public countries: Country[] = [];
+  @Input() public isDarkMode: boolean = true;
 
   constructor(private router: Router, private route: ActivatedRoute){}
 
